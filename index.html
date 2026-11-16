@@ -1,0 +1,586 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>راهنکس | همیشه یه راه دیگه ای ام هست</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@300;400;500;600;700&display=swap');
+
+:root {
+--navy: #0a1628;
+--navy-light: #132337;
+--gold: #c9a227;
+--gold-light: #e8c547;
+--gold-dark: #a8841a;
+--white: #f8f6f0;
+--gray: #a0aec0;
+--success: #2d6a4f;
+}
+
+• {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+
+body {
+font-family: 'Vazirmatn', Tahoma, sans-serif;
+background: linear-gradient(160deg, #060e1a 0%, #0a1628 40%, #0f1c2e 100%);
+color: var(--white);
+min-height: 100vh;
+line-height: 1.8;
+}
+
+.container {
+max-width: 680px;
+margin: 0 auto;
+padding: 24px 18px 60px;
+}
+
+/* Header */
+header {
+text-align: center;
+padding: 40px 0 30px;
+}
+
+.logo {
+font-size: 2.6rem;
+font-weight: 700;
+color: var(--gold);
+letter-spacing: 2px;
+margin-bottom: 8px;
+}
+
+.slogan {
+font-size: 1.15rem;
+color: var(--gold-light);
+font-weight: 500;
+margin-bottom: 6px;
+}
+
+.sub-slogan {
+font-size: 0.95rem;
+color: var(--gray);
+font-weight: 300;
+}
+
+/* Intro Card */
+.intro-card {
+background: rgba(19, 35, 55, 0.7);
+border: 1px solid rgba(201, 162, 39, 0.25);
+border-radius: 16px;
+padding: 28px 24px;
+margin-bottom: 32px;
+backdrop-filter: blur(8px);
+}
+
+.intro-card h2 {
+color: var(--gold);
+font-size: 1.25rem;
+margin-bottom: 14px;
+font-weight: 600;
+}
+
+.intro-card p {
+color: #d1d5db;
+font-size: 0.95rem;
+margin-bottom: 12px;
+}
+
+.intro-card .highlight {
+color: var(--gold-light);
+font-weight: 500;
+}
+
+/* Form Steps */
+.form-card {
+background: rgba(19, 35, 55, 0.85);
+border: 1px solid rgba(201, 162, 39, 0.3);
+border-radius: 16px;
+padding: 28px 22px;
+margin-bottom: 24px;
+}
+
+.step-title {
+color: var(--gold);
+font-size: 1.15rem;
+margin-bottom: 20px;
+font-weight: 600;
+display: flex;
+align-items: center;
+gap: 10px;
+}
+
+.step-number {
+background: var(--gold);
+color: var(--navy);
+width: 28px;
+height: 28px;
+border-radius: 50%;
+display: flex;
+align-items: center;
+justify-content: center;
+font-size: 0.85rem;
+font-weight: 700;
+}
+
+label {
+display: block;
+margin-bottom: 6px;
+color: #e2e8f0;
+font-size: 0.9rem;
+font-weight: 500;
+}
+
+input, select, textarea {
+width: 100%;
+padding: 13px 14px;
+background: rgba(10, 22, 40, 0.8);
+border: 1px solid rgba(201, 162, 39, 0.35);
+border-radius: 10px;
+color: var(--white);
+font-family: inherit;
+font-size: 0.95rem;
+margin-bottom: 18px;
+transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus, textarea:focus {
+outline: none;
+border-color: var(--gold);
+box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.15);
+}
+
+textarea {
+min-height: 90px;
+resize: vertical;
+}
+
+.row {
+display: grid;
+grid-template-columns: 1fr 1fr;
+gap: 14px;
+}
+
+@media (max-width: 520px) {
+.row { grid-template-columns: 1fr; }
+}
+
+/* Buttons */
+.btn {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+gap: 8px;
+padding: 13px 28px;
+border-radius: 10px;
+font-family: inherit;
+font-size: 0.95rem;
+font-weight: 600;
+cursor: pointer;
+border: none;
+transition: all 0.2s;
+}
+
+.btn-primary {
+background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
+color: var(--navy);
+}
+
+.btn-primary:hover {
+background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
+transform: translateY(-1px);
+}
+
+.btn-secondary {
+background: transparent;
+color: var(--gold);
+border: 1px solid rgba(201, 162, 39, 0.5);
+}
+
+.btn-secondary:hover {
+background: rgba(201, 162, 39, 0.1);
+}
+
+.btn-group {
+display: flex;
+gap: 12px;
+flex-wrap: wrap;
+margin-top: 10px;
+}
+
+/* Gender / Option buttons */
+.option-group {
+display: flex;
+flex-wrap: wrap;
+gap: 10px;
+margin-bottom: 18px;
+}
+
+.option-btn {
+padding: 10px 18px;
+background: rgba(10, 22, 40, 0.7);
+border: 1px solid rgba(201, 162, 39, 0.3);
+border-radius: 8px;
+color: #e2e8f0;
+cursor: pointer;
+font-family: inherit;
+font-size: 0.9rem;
+transition: all 0.2s;
+}
+
+.option-btn.active {
+background: rgba(201, 162, 39, 0.2);
+border-color: var(--gold);
+color: var(--gold-light);
+}
+
+/* Progress */
+.progress-bar {
+height: 4px;
+background: rgba(201, 162, 39, 0.15);
+border-radius: 4px;
+margin-bottom: 28px;
+overflow: hidden;
+}
+
+.progress-fill {
+height: 100%;
+background: linear-gradient(90deg, var(--gold-dark), var(--gold));
+border-radius: 4px;
+transition: width 0.35s ease;
+}
+
+/* Summary Box */
+.summary-box {
+background: rgba(10, 22, 40, 0.9);
+border: 1px solid rgba(201, 162, 39, 0.4);
+border-radius: 12px;
+padding: 20px;
+margin: 20px 0;
+font-size: 0.9rem;
+line-height: 1.9;
+white-space: pre-wrap;
+direction: rtl;
+color: #e2e8f0;
+}
+
+.copy-btn {
+width: 100%;
+margin-top: 12px;
+}
+
+/* Support Links */
+.support-links {
+display: flex;
+flex-direction: column;
+gap: 12px;
+margin-top: 24px;
+}
+
+.support-btn {
+display: flex;
+align-items: center;
+justify-content: center;
+gap: 10px;
+padding: 14px;
+border-radius: 10px;
+text-decoration: none;
+font-weight: 600;
+font-size: 0.95rem;
+transition: all 0.2s;
+}
+
+.tg-btn {
+background: #0088cc;
+color: white;
+}
+
+.tg-btn:hover { background: #0077b3; }
+
+.rubika-btn {
+background: #7b2cbf;
+color: white;
+}
+
+.rubika-btn:hover { background: #6a1b9a; }
+
+/* Footer */
+footer {
+text-align: center;
+margin-top: 50px;
+padding-top: 24px;
+border-top: 1px solid rgba(201, 162, 39, 0.15);
+color: var(--gray);
+font-size: 0.85rem;
+}
+
+footer .designer {
+color: var(--gold);
+font-weight: 500;
+margin-top: 6px;
+}
+
+.hidden { display: none !important; }
+
+.success-msg {
+background: rgba(45, 106, 79, 0.25);
+border: 1px solid rgba(45, 106, 79, 0.5);
+color: #95d5b2;
+padding: 12px 16px;
+border-radius: 8px;
+margin-bottom: 16px;
+font-size: 0.9rem;
+}
+</style>
+</head>
+<body>
+<div class="container">
+<!-- Header -->
+<header>
+<div class="logo">راهنکس</div>
+<div class="slogan">همیشه یه راه دیگه ای ام هست!</div>
+<div class="sub-slogan">به صرفه‌تر • باکیفیت‌تر • راه‌گشاتر</div>
+</header>
+
+<!-- Intro -->
+<div class="intro-card" id="intro">
+<h2>مشاوره تحصیلی با استانداردی متفاوت</h2>
+<p>
+<span class="highlight">راهنکس</span> مجموعه‌ای تخصصی در حوزه مشاوره تحصیلی است که با نگاهی حرفه‌ای، شخصی‌سازی‌شده و نتیجه‌محور، مسیر موفقیت تحصیلی شما را هموار می‌کند.
+</p>
+<p>
+ما باور داریم هر دانش‌آموز و دانشجو مسیر منحصربه‌فرد خود را دارد. به همین دلیل خدمات ما بر پایه شناخت دقیق نیازها، اهداف و شرایط فردی طراحی شده‌اند.
+</p>
+<p>
+از برنامه‌ریزی درسی تا مدیریت استرس، از انتخاب رشته تا آمادگی کنکور — <span class="highlight">همیشه یه راه دیگه ای هم هست</span>.
+</p>
+<div class="btn-group" style="margin-top: 20px;">
+<button class="btn btn-primary" onclick="startRegistration()">شروع ثبت‌نام و درخواست مشاوره</button>
+</div>
+</div>
+
+<!-- Form Section -->
+<div id="formSection" class="hidden">
+<div class="progress-bar">
+<div class="progress-fill" id="progressFill" style="width: 12.5%"></div>
+</div>
+
+<!-- Step 1 -->
+<div class="form-card step" id="step1">
+<div class="step-title"><span class="step-number">۱</span> اطلاعات شخصی</div>
+<div class="row">
+<div>
+<label>نام</label>
+<input type="text" id="firstName" placeholder="نام">
+</div>
+<div>
+<label>نام خانوادگی</label>
+<input type="text" id="lastName" placeholder="نام خانوادگی">
+</div>
+</div>
+<label>سن یا تاریخ تولد</label>
+<input type="text" id="birthDate" placeholder="مثال: ۱۳۸۵ یا ۱۳۸۵/۰۵/۱۲">
+<label>جنسیت</label>
+<div class="option-group">
+<button type="button" class="option-btn" data-value="خانم" onclick="selectOption(this, 'gender')">خانم</button>
+<button type="button" class="option-btn" data-value="آقا" onclick="selectOption(this, 'gender')">آقا</button>
+</div>
+<input type="hidden" id="gender">
+<label>شماره تماس</label>
+<input type="tel" id="phone" placeholder="۰۹۱۲۳۴۵۶۷۸۹">
+<div class="btn-group">
+<button class="btn btn-primary" onclick="nextStep(1)">ادامه</button>
+</div>
+</div>
+
+<!-- Step 2 -->
+<div class="form-card step hidden" id="step2">
+<div class="step-title"><span class="step-number">۲</span> اطلاعات تحصیلی</div>
+<label>مقطع تحصیلی</label>
+<div class="option-group" id="eduLevelGroup">
+<button type="button" class="option-btn" data-value="ابتدایی" onclick="selectOption(this, 'eduLevel')">ابتدایی</button>
+<button type="button" class="option-btn" data-value="متوسطه اول" onclick="selectOption(this, 'eduLevel')">متوسطه اول</button>
+<button type="button" class="option-btn" data-value="متوسطه دوم" onclick="selectOption(this, 'eduLevel')">متوسطه دوم</button>
+<button type="button" class="option-btn" data-value="کنکور" onclick="selectOption(this, 'eduLevel')">کنکور</button>
+<button type="button" class="option-btn" data-value="دانشگاه" onclick="selectOption(this, 'eduLevel')">دانشگاه</button>
+<button type="button" class="option-btn" data-value="سایر" onclick="selectOption(this, 'eduLevel')">سایر</button>
+</div>
+<input type="hidden" id="eduLevel">
+<label>پایه / ترم</label>
+<input type="text" id="grade" placeholder="مثال: نهم، دوازدهم، ترم ۳">
+<label>رشته</label>
+<input type="text" id="field" placeholder="اگر ندارید بنویسید ندارم">
+<label>وضعیت تحصیلی</label>
+<input type="text" id="eduStatus" placeholder="در حال تحصیل / فارغ‌التحصیل / ...">
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="prevStep(2)">قبلی</button>
+<button class="btn btn-primary" onclick="nextStep(2)">ادامه</button>
+</div>
+</div>
+
+<!-- Step 3 -->
+<div class="form-card step hidden" id="step3">
+<div class="step-title"><span class="step-number">۳</span> اهداف و علت مشاوره</div>
+<label>اهداف تحصیلی شما</label>
+<textarea id="goals" placeholder="اهداف کوتاه‌مدت و بلندمدت خود را بنویسید..."></textarea>
+<label>علت اصلی درخواست مشاوره</label>
+<textarea id="reason" placeholder="چرا به مشاوره نیاز دارید؟"></textarea>
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="prevStep(3)">قبلی</button>
+<button class="btn btn-primary" onclick="nextStep(3)">ادامه</button>
+</div>
+</div>
+
+<!-- Step 4 -->
+<div class="form-card step hidden" id="step4">
+<div class="step-title"><span class="step-number">۴</span> ترجیح مشاور</div>
+<label>جنسیت مشاور مورد نظر</label>
+<div class="option-group">
+<button type="button" class="option-btn" data-value="مشاور خانم" onclick="selectOption(this, 'counselorGender')">مشاور خانم</button>
+<button type="button" class="option-btn" data-value="مشاور آقا" onclick="selectOption(this, 'counselorGender')">مشاور آقا</button>
+<button type="button" class="option-btn" data-value="بدون ترجیح" onclick="selectOption(this, 'counselorGender')">بدون ترجیح</button>
+</div>
+<input type="hidden" id="counselorGender">
+<label>موضوع مشاوره (اختیاری)</label>
+<input type="text" id="topic" placeholder="مثال: برنامه‌ریزی کنکور، مدیریت زمان، انتخاب رشته و ...">
+<div class="btn-group">
+<button class="btn btn-secondary" onclick="prevStep(4)">قبلی</button>
+<button class="btn btn-primary" onclick="nextStep(4)">مشاهده خلاصه و ارسال</button>
+</div>
+</div>
+
+<!-- Step 5 - Summary -->
+<div class="form-card step hidden" id="step5">
+<div class="step-title"><span class="step-number">۵</span> خلاصه اطلاعات و ارسال</div>
+<p style="color:#a0aec0; font-size:0.9rem; margin-bottom:14px;">
+اطلاعات زیر را کپی کنید و برای یکی از راه‌های پشتیبانی ارسال نمایید تا درخواست شما بررسی شود.
+</p>
+<div class="summary-box" id="summaryText"></div>
+<button class="btn btn-primary copy-btn" onclick="copySummary()">کپی کردن خلاصه اطلاعات</button>
+<div id="copySuccess" class="success-msg hidden">✓ متن با موفقیت کپی شد</div>
+
+<div class="support-links">
+<a class="support-btn tg-btn" href="https://t.me/Support_Rahnext_Admin" target="_blank">
+ارسال به تلگرام پشتیبانی
+</a>
+<a class="support-btn rubika-btn" href="https://rubika.ir/Support_Rahnext_Admin" target="_blank">
+ارسال به روبیکا پشتیبانی
+</a>
+</div>
+<p style="text-align:center; color:#a0aec0; font-size:0.85rem; margin-top:18px;">
+آیدی پشتیبانی: <strong style="color:var(--gold)">Support_Rahnext_Admin</strong>
+</p>
+</div>
+</div>
+
+<footer>
+<div>© راهنکس — همیشه یه راه دیگه ای ام هست</div>
+<div class="designer">طراح و مدیریت: BABAEI</div>
+</footer>
+</div>
+
+<script>
+let currentStep = 1;
+const totalSteps = 5;
+
+function startRegistration() {
+document.getElementById('intro').classList.add('hidden');
+document.getElementById('formSection').classList.remove('hidden');
+showStep(1);
+}
+
+function showStep(n) {
+document.querySelectorAll('.step').forEach(el => el.classList.add('hidden'));
+document.getElementById('step' + n).classList.remove('hidden');
+currentStep = n;
+document.getElementById('progressFill').style.width = ((n / totalSteps) * 100) + '%';
+window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function nextStep(from) {
+if (from === 1) {
+if (!document.getElementById('firstName').value.trim() || !document.getElementById('lastName').value.trim()) {
+alert('لطفاً نام و نام خانوادگی را وارد کنید');
+return;
+}
+if (!document.getElementById('gender').value) {
+alert('لطفاً جنسیت را انتخاب کنید');
+return;
+}
+}
+if (from === 2) {
+if (!document.getElementById('eduLevel').value) {
+alert('لطفاً مقطع تحصیلی را انتخاب کنید');
+return;
+}
+}
+if (from === 4) {
+if (!document.getElementById('counselorGender').value) {
+alert('لطفاً جنسیت مشاور را انتخاب کنید');
+return;
+}
+buildSummary();
+}
+showStep(from + 1);
+}
+
+function prevStep(from) {
+showStep(from - 1);
+}
+
+function selectOption(btn, field) {
+const group = btn.parentElement;
+group.querySelectorAll('.option-btn').forEach(b => b.classList.remove('active'));
+btn.classList.add('active');
+document.getElementById(field).value = btn.dataset.value;
+}
+
+function buildSummary() {
+const data = {
+name: document.getElementById('firstName').value.trim() + ' ' + document.getElementById('lastName').value.trim(),
+birth: document.getElementById('birthDate').value.trim() || '-',
+gender: document.getElementById('gender').value || '-',
+phone: document.getElementById('phone').value.trim() || '-',
+eduLevel: document.getElementById('eduLevel').value || '-',
+grade: document.getElementById('grade').value.trim() || '-',
+field: document.getElementById('field').value.trim() || '-',
+eduStatus: document.getElementById('eduStatus').value.trim() || '-',
+goals: document.getElementById('goals').value.trim() || '-',
+reason: document.getElementById('reason').value.trim() || '-',
+counselor: document.getElementById('counselorGender').value || '-',
+topic: document.getElementById('topic').value.trim() || '-'
+};
+
+const text = درخواست مشاوره — راهنکس ──────────────────── نام و نام خانوادگی: ${data.name}
+سن / تاریخ تولد: ${data.birth} جنسیت: ${data.gender}
+شماره تماس: ${data.phone} مقطع تحصیلی: ${data.eduLevel}
+پایه / ترم: ${data.grade} رشته: ${data.field}
+وضعیت تحصیلی: ${data.eduStatus} اهداف تحصیلی: ${data.goals}
+علت درخواست: ${data.reason} ترجیح مشاور: ${data.counselor}
+موضوع مشاوره: ${data.topic} ──────────────────── منبع: وب‌سایت راهنکس;
+
+document.getElementById('summaryText').textContent = text;
+}
+
+function copySummary() {
+const text = document.getElementById('summaryText').textContent;
+navigator.clipboard.writeText(text).then(() => {
+const msg = document.getElementById('copySuccess');
+msg.classList.remove('hidden');
+setTimeout(() => msg.classList.add('hidden'), 2500);
+}).catch(() => {
+// fallback
+const range = document.createRange();
+range.selectNode(document.getElementById('summaryText'));
+window.getSelection().removeAllRanges();
+window.getSelection().addRange(range);
+document.execCommand('copy');
+window.getSelection().removeAllRanges();
+alert('متن کپی شد');
+});
+}
+</script>
+</body>
+</html>
